@@ -1,0 +1,12 @@
+harmonica_size = 22
+harmonica_position = 82
+tabs_size = 18
+tabs_position = 84
+shade_opacity = 46
+shade_top = 70
+shade_bottom = 0
+rotate = 0
+tabs_font = 0
+harm_font = 15
+chords_align = "middle" # can be "top" , "middle" , or "bottom"
+chords_parenthesis = True
