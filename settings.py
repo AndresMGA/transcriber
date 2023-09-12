@@ -7,6 +7,6 @@ shade_top = 73
 shade_bottom = 0
 rotate = 0
 tabs_font = 0
-harm_font = 15
+harm_font = 45
 chords_align = "middle" # can be "top" , "middle" , or "bottom"
 chords_parenthesis = True

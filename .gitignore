@@ -14,3 +14,5 @@ __pycache__/settings.cpython-310.pyc
 __pycache__/undo_redo.cpython-310.pyc
 tmp/export.mp4
 tmp/output.mp4
+bbb.json
+tmp/rotated_video.mp4

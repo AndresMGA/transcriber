@@ -181,31 +181,31 @@ class Ui_MainWindow(object):
 
         self.harmSizeSlider.setMinimum(0)
         self.harmSizeSlider.setMaximum(50)
-        self.harmSizeSlider.setValue(22)
+        self.harmSizeSlider.setValue(settings.harmonica_size)
 
         self.harmOffsetSlider.setMinimum(0)
         self.harmOffsetSlider.setMaximum(100)
-        self.harmOffsetSlider.setValue(90)
+        self.harmOffsetSlider.setValue(settings.harmonica_position)
 
         self.tabsSizeSlider.setMinimum(10)
         self.tabsSizeSlider.setMaximum(40)
-        self.tabsSizeSlider.setValue(21)
+        self.tabsSizeSlider.setValue(settings.tabs_size)
 
         self.tabsOffsetSlider.setMinimum(0)
         self.tabsOffsetSlider.setMaximum(100)
-        self.tabsOffsetSlider.setValue(10)
+        self.tabsOffsetSlider.setValue(settings.tabs_position)
 
         self.transparency.setMinimum(0)
         self.transparency.setMaximum(100)
-        self.transparency.setValue(30)
+        self.transparency.setValue(settings.shade_opacity)
 
         self.shadeTop.setMinimum(0)
         self.shadeTop.setMaximum(100)
-        self.shadeTop.setValue(30)
+        self.shadeTop.setValue(settings.shade_top)
         
         self.shadeBottom.setMinimum(0)
         self.shadeBottom.setMaximum(100)
-        self.shadeBottom.setValue(70)
+        self.shadeBottom.setValue(settings.shade_bottom)
 
         self.rotate.setMinimum(0)
         self.rotate.setMaximum(3)
@@ -213,11 +213,11 @@ class Ui_MainWindow(object):
 
         self.font.setMinimum(0)
         self.font.setMaximum(3318)
-        self.font.setValue(0)
+        self.font.setValue(settings.harm_font)
 
         self.fonth.setMinimum(0)
         self.fonth.setMaximum(3318)
-        self.fonth.setValue(45)
+        self.fonth.setValue(settings.harm_font)
 
         self.harmSizeSlider.valueChanged.connect(Ui_MainWindow.set_harm_size)
         self.harmOffsetSlider.valueChanged.connect(Ui_MainWindow.set_harm_offset)
@@ -395,8 +395,7 @@ class Ui_MainWindow(object):
 
         if video_height>video_width:
             self.load_settings()
-        else:
-            self.load_settings()
+
 
         audio_clip = video_clip.audio
         audio_clip.write_audiofile("./tmp/audio.wav")
@@ -499,6 +498,17 @@ class Ui_MainWindow(object):
         self.rotate.setValue(settings.rotate)
         self.font.setValue(settings.tabs_font)
         self.fonth.setValue(settings.harm_font)
+        data.harm_size = settings.harmonica_size
+        data.harm_offset = 1-settings.harmonica_position/100
+        data.tab_size = settings.tabs_size
+        data.tab_offset = 1-settings.tabs_position/100
+        data.transparency = settings.shade_opacity/100
+        data.shade_top = 1-settings.shade_top/100
+        data.shade_bottom = 1-settings.shade_bottom/100
+        data.rotation = settings.rotate
+
+        Plot.update_video()
+        
 
 
    

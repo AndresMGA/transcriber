@@ -644,7 +644,7 @@ class Plot(QtWidgets.QGraphicsView):
         grid.pixels_per_second = 100
         data.chords = []
         data.phrases = []
-        data.rotation = 1
+        data.rotation = 0
 
         if Plot.scene_obj:
             Plot.scene_obj.clear()
@@ -921,7 +921,7 @@ class Plot(QtWidgets.QGraphicsView):
 
     def draw_active_tab(p:Optional[QPainter],active_tab,active_hole,chord_offset = 0):   
         
-        active_tab_font = QFont("Geeza Pro Interface",round(r(0.4)))
+        active_tab_font = QFont(Plot.get_font(settings.harm_font),round(r(0.4)))
         p.setFont(active_tab_font)
         holec = active_hole+chord_offset
         tab_text = active_tab["tab"].replace(str(active_hole),str(holec))
