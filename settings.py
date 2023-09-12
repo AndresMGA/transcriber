@@ -1,9 +1,9 @@
 harmonica_size = 22
 harmonica_position = 82
-tabs_size = 18
-tabs_position = 84
-shade_opacity = 46
-shade_top = 70
+tabs_size = 16
+tabs_position = 86
+shade_opacity = 56
+shade_top = 73
 shade_bottom = 0
 rotate = 0
 tabs_font = 0

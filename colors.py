@@ -1,6 +1,6 @@
 from PyQt5.QtGui import QPainterPath, QPen, QColor
 
-text_color = QColor(0, 0, 0)  
+text_color = QColor(255, 255, 255)  
 tab_backgroung_color = QColor(133, 133, 133)
 fill_tabs_background = True
 draw_color = QColor("#00b49c")
