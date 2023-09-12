@@ -1,9 +1,9 @@
 import data
 
-grid = 16
+grid = 12
 number_of_lines = 38
 pixels_per_second = 100
-piano_w = 150
+piano_w = 110
 
 def snap(x):
     return round(x / grid) * grid

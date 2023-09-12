@@ -19,8 +19,9 @@ import grid
 import settings
 qt_version = QT_VERSION_STR
 print(qt_version)
-plot_W_no_video = 1625
-plot_W_video = 1220
+plot_W_no_video = 1260
+plot_W_video = 950
+#1366, 768
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         
@@ -31,7 +32,7 @@ class Ui_MainWindow(object):
         self.graphicsView.setObjectName("graphicsView")
 
         self.img = QtWidgets.QLabel(self.centralwidget)
-        self.img.setGeometry(QtCore.QRect(1250, 70, 636, 636))
+        self.img.setGeometry(QtCore.QRect(plot_W_video+30, 8, 636, 636))
         self.img.setObjectName("img")
         Plot.image_label = self.img
        
@@ -47,7 +48,7 @@ class Ui_MainWindow(object):
         self.radioButton_2.setObjectName("radioButton_2")
         self.radioButton_2.clicked.connect(self.write_tabs)
         self.horizontalSlider = QtWidgets.QSlider(self.centralwidget)
-        self.horizontalSlider.setGeometry(QtCore.QRect(700, 30, 160, 20))
+        self.horizontalSlider.setGeometry(QtCore.QRect(400, 30, 160, 20))
         self.horizontalSlider.setMinimum(50)
         self.horizontalSlider.setMaximum(200)
         self.horizontalSlider.setValue(100)
@@ -55,11 +56,11 @@ class Ui_MainWindow(object):
         self.horizontalSlider.setObjectName("horizontalSlider")
         self.horizontalSlider.valueChanged.connect(self.graphicsView.zoom_changed)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(750, 10, 58, 18))
+        self.label.setGeometry(QtCore.QRect(450, 10, 58, 18))
         self.label.setObjectName("label")
 
         self.cpu_label = QtWidgets.QLabel(self.centralwidget)
-        self.cpu_label.setGeometry(plot_W_video-100,15,100,30)
+        self.cpu_label.setGeometry(20,grid.grid*49,60,30)
         #self.cpu_label.setMinimumSize(700, 60)  # Set a minimum size for the QLabel
         self.cpu_label.setFont(QFont("Currier New",10))
         self.cpu_label.setText(data.cpu_usage)
@@ -68,15 +69,15 @@ class Ui_MainWindow(object):
 
 
         self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox.setGeometry(QtCore.QRect(250, 15, 88, 30))
+        self.checkBox.setGeometry(QtCore.QRect(190, 15, 88, 30))
         self.checkBox.setObjectName("checkBox")
         self.checkBox.stateChanged.connect(self.graphicsView.set_speed)
         self.checkBox1 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox1.setGeometry(QtCore.QRect(350, 15, 120, 30))
+        self.checkBox1.setGeometry(QtCore.QRect(280, 15, 120, 30))
         self.checkBox1.setObjectName("checkBox")
         self.checkBox1.stateChanged.connect(self.graphicsView.set_original_audio)
         self.checkBox2 = QtWidgets.QCheckBox(self.centralwidget)
-        x = plot_W_video + 30
+        x = 590
         sep = 65
         self.checkBox2.setGeometry(QtCore.QRect(x, 15, 88, 30))
         self.checkBox2.setObjectName("checkBox2")
@@ -94,7 +95,7 @@ class Ui_MainWindow(object):
         self.checkBox5.setObjectName("checkBox5")
         self.checkBox5.stateChanged.connect(self.video_render_settings)
         self.checkBox6 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox6.setGeometry(QtCore.QRect(x+4*sep+5, 15, 150, 30))
+        self.checkBox6.setGeometry(QtCore.QRect(x+4*sep+5, 15, 110, 30))
         self.checkBox6.setObjectName("checkBox6")
         self.checkBox6.stateChanged.connect(self.video_render_settings)
 
@@ -126,23 +127,23 @@ class Ui_MainWindow(object):
         self.font = QtWidgets.QSpinBox(self.centralwidget)
         self.fonth = QtWidgets.QSpinBox(self.centralwidget)
         self.fonth.hide()
-        y = 760
+        y = int(grid.grid*47.5)
         x = 100
         sep = 70
         self.tabs_label = QtWidgets.QLabel(self.centralwidget)
         self.tabs_label.setGeometry(x+sep*11,750,1000,80)
         Plot.tabs_label = self.tabs_label
 
-        self.harmSizeSlider.setGeometry(QtCore.QRect(x, y, 50, 50))
-        self.harmOffsetSlider.setGeometry(QtCore.QRect(x+1*sep, y, 50, 50))
-        self.tabsSizeSlider.setGeometry(QtCore.QRect(x+2*sep, y, 50, 50))
-        self.tabsOffsetSlider.setGeometry(QtCore.QRect(x+3*sep, y, 50, 50))
-        self.transparency.setGeometry(QtCore.QRect(x+4*sep, y, 50, 50))
-        self.shadeTop.setGeometry(QtCore.QRect(x+5*sep, y, 50, 50))
-        self.shadeBottom.setGeometry(QtCore.QRect(x+6*sep, y, 50, 50))
-        self.rotate.setGeometry(QtCore.QRect(x+7*sep, y, 50, 50))
-        self.font.setGeometry(QtCore.QRect(x+8*sep, y, 70, 50))
-        self.fonth.setGeometry(QtCore.QRect(x+9*sep+20, y, 70, 50))
+        self.harmSizeSlider.setGeometry(QtCore.QRect(x, y, 50, 45))
+        self.harmOffsetSlider.setGeometry(QtCore.QRect(x+1*sep, y, 50, 45))
+        self.tabsSizeSlider.setGeometry(QtCore.QRect(x+2*sep, y, 50, 45))
+        self.tabsOffsetSlider.setGeometry(QtCore.QRect(x+3*sep, y, 50, 45))
+        self.transparency.setGeometry(QtCore.QRect(x+4*sep, y, 50, 45))
+        self.shadeTop.setGeometry(QtCore.QRect(x+5*sep, y, 50, 45))
+        self.shadeBottom.setGeometry(QtCore.QRect(x+6*sep, y, 50, 45))
+        self.rotate.setGeometry(QtCore.QRect(x+7*sep, y, 50, 45))
+        self.font.setGeometry(QtCore.QRect(x+8*sep, y, 70, 45))
+        self.fonth.setGeometry(QtCore.QRect(x+9*sep+20, y, 70, 45))
 
         self.harmSizeSliderl = QtWidgets.QLabel(self.centralwidget)
         self.harmOffsetSliderl = QtWidgets.QLabel(self.centralwidget)
@@ -155,17 +156,17 @@ class Ui_MainWindow(object):
         self.fontl = QtWidgets.QLabel(self.centralwidget)
         self.fonthl = QtWidgets.QLabel(self.centralwidget)
         self.fonthl.hide()
-        y = 810
-        self.harmSizeSliderl.setGeometry(QtCore.QRect(x, y, 150, 50))
-        self.harmOffsetSliderl.setGeometry(QtCore.QRect(x+1*sep,y, 150, 50))
-        self.tabsSizeSliderl.setGeometry(QtCore.QRect(x+2*sep, y, 150, 50))
-        self.tabsOffsetSliderl.setGeometry(QtCore.QRect(x+3*sep, y, 150, 50))
-        self.transparencyl.setGeometry(QtCore.QRect(x+4*sep, y, 150, 50))
-        self.shadeTopl.setGeometry(QtCore.QRect(x+5*sep, y, 150, 50))
-        self.shadeBottoml.setGeometry(QtCore.QRect(x+6*sep, y, 150, 50))
-        self.rotatel.setGeometry(QtCore.QRect(x+7*sep, y, 150, 50))
-        self.fontl.setGeometry(QtCore.QRect(x+8*sep, y, 150, 50))
-        self.fonthl.setGeometry(QtCore.QRect(x+9*sep+20, y, 150, 50))
+        y = int(grid.grid * 51.3)
+        self.harmSizeSliderl.setGeometry(QtCore.QRect(x, y, 150, 30))
+        self.harmOffsetSliderl.setGeometry(QtCore.QRect(x+1*sep,y, 150, 30))
+        self.tabsSizeSliderl.setGeometry(QtCore.QRect(x+2*sep, y, 150, 30))
+        self.tabsOffsetSliderl.setGeometry(QtCore.QRect(x+3*sep, y, 150, 30))
+        self.transparencyl.setGeometry(QtCore.QRect(x+4*sep, y, 150, 30))
+        self.shadeTopl.setGeometry(QtCore.QRect(x+5*sep, y, 150, 30))
+        self.shadeBottoml.setGeometry(QtCore.QRect(x+6*sep, y, 150, 30))
+        self.rotatel.setGeometry(QtCore.QRect(x+7*sep, y, 150, 30))
+        self.fontl.setGeometry(QtCore.QRect(x+8*sep, y, 150, 30))
+        self.fonthl.setGeometry(QtCore.QRect(x+9*sep+20, y, 150, 30))
         
         self.harmSizeSliderl.setText("H Size")
         self.harmOffsetSliderl.setText("H Pos")

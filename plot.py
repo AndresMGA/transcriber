@@ -535,15 +535,15 @@ class Plot(QtWidgets.QGraphicsView):
                 t.setPos(0,grid.miditoy(i)-2)
                 t.setProperty("offset",0)
             if data.notes_info[i][tab_idx]!="na":
-                t=Plot.scene_obj.addText(data.notes_info[i][tab_idx],QFont("Courier New", 20))
+                t=Plot.scene_obj.addText(data.notes_info[i][tab_idx],QFont("Courier New", grid.grid+2))
                 t.setDefaultTextColor(QColor(250,0,0,255))
                 t.setPos(35,grid.miditoy(i)-7)
-                t.setProperty("offset",35)
+                t.setProperty("offset",25)
             if data.notes_info[i][tab_idx]!=data.notes_info[i][alt_tab_idx] and data.notes_info[i][alt_tab_idx]!="na":
-                t=Plot.scene_obj.addText(data.notes_info[i][alt_tab_idx],QFont("Courier New", 20))
+                t=Plot.scene_obj.addText(data.notes_info[i][alt_tab_idx],QFont("Courier New", grid.grid+2))
                 t.setDefaultTextColor(QColor(0,250,250,255))
                 t.setPos(80,grid.miditoy(i)-7)
-                t.setProperty("offset",80)
+                t.setProperty("offset",70)
 
         self.on_scrollbar_value_changed(self.horizontalScrollBar().value())
     
