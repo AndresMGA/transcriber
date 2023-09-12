@@ -977,7 +977,6 @@ class Plot(QtWidgets.QGraphicsView):
         print("exporting")
         Plot.update_video()
         file_prefix = file_name.split(".")[0]
-        preview.export_video_capture = cv2.VideoCapture(preview.export_video_file)
         #fps=preview.export_video_capture.get(cv2.CAP_PROP_FPS)
         print(preview.fps)
         global writing

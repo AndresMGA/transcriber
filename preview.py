@@ -208,12 +208,12 @@ def get_preview_frame_at(frame_time):
 
 def prepare_export():
 
-    global fps,fourcc,export_video,export_video_capture,export_video_file,preview_video_capture,video_capture
+    global fourcc,export_video,export_video_capture,export_video_file,preview_video_capture,video_capture
 
     print("resizing video for export")
 
-    print(fps)
-    #video_capture.release()
+    video_capture.release()
+    video_capture = cv2.VideoCapture(video_file)
     fourcc = cv2.VideoWriter_fourcc(*'mp4v') 
     export_video_file = "./tmp/export.mp4"
     export_video = cv2.VideoWriter(export_video_file, fourcc, fps, (w, h), isColor=True)
@@ -221,6 +221,7 @@ def prepare_export():
     while True:
         ret, frame = video_capture.read()
         if not ret:
+            print("can't read ")
             break
         resized_frame = cv2.resize(frame, (w, h))
         rgb_frame = cv2.cvtColor(resized_frame, cv2.COLOR_BGR2RGB)
@@ -229,7 +230,7 @@ def prepare_export():
     export_video.release()
     video_capture.release()
 
-    #export_video_capture = cv2.VideoCapture(export_video_file)
+    export_video_capture = cv2.VideoCapture(export_video_file)
     print("export video resized")
 
 def get_export_frame_at(frame_time):

@@ -1,0 +1,16 @@
+keys
+keys.pub
+transcriber.spec
+__pycache__/colors.cpython-310.pyc
+__pycache__/data.cpython-310.pyc
+__pycache__/fonts.cpython-310.pyc
+__pycache__/grid.cpython-310.pyc
+__pycache__/plot.cpython-310.pyc
+__pycache__/preview.cpython-310.pyc
+__pycache__/q_note.cpython-310.pyc
+__pycache__/reversible_commands.cpython-310.pyc
+__pycache__/scaling.cpython-310.pyc
+__pycache__/settings.cpython-310.pyc
+__pycache__/undo_redo.cpython-310.pyc
+tmp/export.mp4
+tmp/output.mp4
