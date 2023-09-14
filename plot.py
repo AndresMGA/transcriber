@@ -920,8 +920,10 @@ class Plot(QtWidgets.QGraphicsView):
             Plot.rr(p,ahx, ahy,ahw,ahh,r(.13),QColor(0,0,0))
 
     def draw_active_tab(p:Optional[QPainter],active_tab,active_hole,chord_offset = 0):   
-        
-        active_tab_font = QFont(Plot.get_font(settings.harm_font),round(r(0.4)))
+        if platform.system() == "Linux":
+            active_tab_font = QFont(Plot.get_font(settings.harm_font),round(r(0.4)))
+        else:
+            active_tab_font = QFont("Geeza Pro Interface",round(r(0.4)))
         p.setFont(active_tab_font)
         holec = active_hole+chord_offset
         tab_text = active_tab["tab"].replace(str(active_hole),str(holec))

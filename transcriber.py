@@ -20,7 +20,7 @@ import settings
 qt_version = QT_VERSION_STR
 print(qt_version)
 plot_W_no_video = 1260
-plot_W_video = 950
+plot_W_video = 880
 #1366, 768
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -48,7 +48,7 @@ class Ui_MainWindow(object):
         self.radioButton_2.setObjectName("radioButton_2")
         self.radioButton_2.clicked.connect(self.write_tabs)
         self.horizontalSlider = QtWidgets.QSlider(self.centralwidget)
-        self.horizontalSlider.setGeometry(QtCore.QRect(400, 30, 160, 20))
+        self.horizontalSlider.setGeometry(QtCore.QRect(400, 30, 120, 20))
         self.horizontalSlider.setMinimum(50)
         self.horizontalSlider.setMaximum(200)
         self.horizontalSlider.setValue(100)
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.horizontalSlider.setObjectName("horizontalSlider")
         self.horizontalSlider.valueChanged.connect(self.graphicsView.zoom_changed)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(450, 10, 58, 18))
+        self.label.setGeometry(QtCore.QRect(430, 10, 58, 18))
         self.label.setObjectName("label")
 
         self.cpu_label = QtWidgets.QLabel(self.centralwidget)
@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
         self.checkBox1.setObjectName("checkBox")
         self.checkBox1.stateChanged.connect(self.graphicsView.set_original_audio)
         self.checkBox2 = QtWidgets.QCheckBox(self.centralwidget)
-        x = 590
+        x = 530
         sep = 65
         self.checkBox2.setGeometry(QtCore.QRect(x, 15, 88, 30))
         self.checkBox2.setObjectName("checkBox2")
