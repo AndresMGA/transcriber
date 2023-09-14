@@ -107,7 +107,7 @@ def load_video():
         ph = 360
         pw = 636
     
-    #fps = video_capture.get(cv2.CAP_PROP_FPS)
+    fps = video_capture.get(cv2.CAP_PROP_FPS)
     fourcc = cv2.VideoWriter_fourcc(*'mp4v') 
     output_video_path = "./tmp/resized.mp4"
     preview_video = cv2.VideoWriter(output_video_path, fourcc, fps, (pw, ph), isColor=True)
