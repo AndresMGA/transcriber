@@ -73,7 +73,7 @@ def rotate_video():
         prev_rotation = rotation
         
 def load_video():
-    global video_file, video_capture, w, h, vw, vh, video_format, video_resize_factor, ph,pw,preview_video, preview_video_capture
+    global fps,video_file, video_capture, w, h, vw, vh, video_format, video_resize_factor, ph,pw,preview_video, preview_video_capture
     if video_file == None:
         video_capture = None
         h = 1920
